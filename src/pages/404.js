@@ -5,26 +5,19 @@ import { Box, Grid, Button, Typography } from '@material-ui/core'
 import Layout from '../components/Layout'
 import SimpleHero from '../components/SimpleHero'
 import Banner from '../components/Banner'
-import AboutSection from '../components/home-page/AboutSection'
-import ServiceSection from '../components/home-page/ServiceSection'
 
-const HomePage = props => {
+const NotFoundPage = props => {
   return (
     <Layout>
       <SimpleHero>
-        <Banner
-          title='Continue Exploring'
-          info='Lorem ipsum delactius insila acersu magnefic'
-        >
+        <Banner title='404' info='Lorem ipsum delactius insila acersu magnefic'>
           <Button variant='outlined' color='inherit' size='large'>
-            <Link to='/tours'>Explore Tours</Link>
+            <Link to='/'>Go to Home</Link>
           </Button>
         </Banner>
       </SimpleHero>
-      <AboutSection />
-      <ServiceSection />
     </Layout>
   )
 }
 
-export default HomePage
+export default NotFoundPage
