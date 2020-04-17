@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import Container from '@material-ui/core/Container'
@@ -38,11 +38,15 @@ const Navbar = () => {
             <Grid container spacing={5} style={{ width: 'max-content' }}>
               {pageLinks.map(pageLink => (
                 <Grid item key={pageLink.text}>
-                  <Link to={pageLink.path} activeClassName={classes.activeLink}>
+                  <AniLink
+                    fade
+                    to={pageLink.path}
+                    activeClassName={classes.activeLink}
+                  >
                     <Typography variant='body1' className={classes.navLink}>
                       {pageLink.text}
                     </Typography>
-                  </Link>
+                  </AniLink>
                 </Grid>
               ))}
             </Grid>

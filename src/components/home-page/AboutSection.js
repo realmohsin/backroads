@@ -4,10 +4,26 @@ import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { Box, Grid, Typography, Button } from '@material-ui/core'
 import SectionTitle from '../SectionTitle'
 import defaultBcg from '../../images/defaultBcg.jpeg'
+import { useStaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
+
+const getAboutImage = graphql`
+  query {
+    aboutImageData: file(relativePath: { eq: "defaultBcg.jpeg" }) {
+      childImageSharp {
+        fluid(maxWidth: 600) {
+          ...GatsbyImageSharpFluid_tracedSVG
+        }
+      }
+    }
+  }
+`
 
 const AboutSection = props => {
   const classes = useStyles()
   const theme = useTheme()
+
+  const { aboutImageData } = useStaticQuery(getAboutImage)
 
   return (
     <Box component='section' py={['110px']}>
@@ -15,7 +31,12 @@ const AboutSection = props => {
       <Grid container>
         <Grid item xs={12} lg={6} className={classes.graphicSubSection}>
           <Box border={4} borderColor='primary.main' width={['600px']}>
-            <img src={defaultBcg} alt='about us' className={classes.aboutImg} />
+            {/* <img src={defaultBcg} alt='about us' className={classes.aboutImg} /> */}
+            <Img
+              fluid={aboutImageData.childImageSharp.fluid}
+              alt='about us'
+              className={classes.aboutImg}
+            />
           </Box>
         </Grid>
         <Grid item xs={12} lg={6} className={classes.infoSubSection}>
@@ -61,8 +82,6 @@ const useStyles = makeStyles(theme => ({
     }
   },
   aboutImg: {
-    width: '100%',
-    display: 'block',
     transform: 'translate(15px, 15px)'
   }
 }))

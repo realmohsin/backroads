@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import { makeStyles } from '@material-ui/core/styles'
 import { Box, Grid, Button, Typography } from '@material-ui/core'
 import Layout from '../components/Layout'
@@ -12,7 +12,9 @@ const NotFoundPage = props => {
       <SimpleHero>
         <Banner title='404' info='Lorem ipsum delactius insila acersu magnefic'>
           <Button variant='outlined' color='inherit' size='large'>
-            <Link to='/'>Go to Home</Link>
+            <AniLink fade to='/'>
+              Go to Home
+            </AniLink>
           </Button>
         </Banner>
       </SimpleHero>

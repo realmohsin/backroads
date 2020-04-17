@@ -16,8 +16,8 @@ const Boilerplate = props => {
       bgcolor={theme.palette.common.sectionBg}
     >
       <SectionTitle firstPhrase='Our' secondPhrase='Services' />
-      <Box my={[12]}>
-        <Grid container justify='center' spacing={8}>
+      <Box my={[10]}>
+        <Grid container justify='center' spacing={0}>
           {services.map(service => (
             <Grid item key={service.title} className={classes.serviceCard}>
               <Box>
@@ -48,7 +48,8 @@ const Boilerplate = props => {
 
 const useStyles = makeStyles(theme => ({
   serviceCard: {
-    width: '500px'
+    width: '450px',
+    margin: '20px 30px 40px'
   },
   example: {
     // ...mobile first styles,

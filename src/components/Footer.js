@@ -1,7 +1,7 @@
 import React from 'react'
 import { Typography, Box, Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import { Link } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import pageLinks from '../data/page-links.json'
 import socialLinks from '../data/social-links'
 
@@ -11,9 +11,9 @@ function Copyright () {
       <Box component='span' mx='5px'>
         {'Copyright © '}
       </Box>
-      <Link color='inherit' href='https://material-ui.com/'>
+      <AniLink color='inherit' href='https://material-ui.com/'>
         Backroads Travel Company
-      </Link>{' '}
+      </AniLink>{' '}
       <Box component='span' mx='5px'>
         {new Date().getFullYear()}
       </Box>
@@ -30,11 +30,11 @@ const Footer = props => {
       <Grid container justify='center' spacing={5}>
         {pageLinks.map(pageLink => (
           <Grid item key={pageLink.text}>
-            <Link to={pageLink.path}>
+            <AniLink to={pageLink.path}>
               <Typography variant='body1' className={classes.navLink}>
                 {pageLink.text}
               </Typography>
-            </Link>
+            </AniLink>
           </Grid>
         ))}
       </Grid>
